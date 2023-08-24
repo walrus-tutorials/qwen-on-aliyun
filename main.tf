@@ -7,7 +7,7 @@ data "alicloud_vswitches" "default" {
 }
 
 data "alicloud_security_groups" "default" {
-  name_regex = "default$"
+  name_regex = "${var.security_group_name}$"
 }
 
 resource "terraform_data" "instance_type" {
@@ -28,7 +28,7 @@ resource "alicloud_instance" "qwen" {
   internet_charge_type = var.internet_charge_type
   internet_max_bandwidth_out = var.internet_max_bandwidth_out
 
-  vswitch_id = data.alicloud_vswitches.default.vswitches.0.id
+  vswitch_id = var.vswitch_id != "" ? var.vswitch_id : data.alicloud_vswitches.default.vswitches.0.id
 
   user_data = <<-EOF
               #!/bin/bash

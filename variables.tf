@@ -19,10 +19,19 @@ variable "system_disk_category" {
   default     = "cloud_essd"
 }
 
-# @options [100,200]
 variable "system_disk_size" {
   description = "The size of the system disk"
   default     = 100
+}
+
+variable "vswitch_id" {
+  description = "The ID of the vswitch. If not specified, it will use one of the vswitches in the default vpc"
+  default     = ""
+}
+
+variable "security_group_name" {
+  description = "The name of the security group. If not specified, it will use the default"
+  default     = "default"
 }
 
 variable "internet_charge_type" {
