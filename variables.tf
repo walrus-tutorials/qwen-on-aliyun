@@ -3,7 +3,7 @@ variable "instance_name" {
   default     = "qwen-demo"
 }
 
-# @options ["ecs.c7.8xlarge","ecs.c7.16xlarge"]
+# @options ["ecs.c7.3xlarge", "ecs.c7.4xlarge", "ecs.c7.6xlarge", "ecs.c7.8xlarge","ecs.c7.16xlarge"]
 variable "instance_type" {
   description = "The instance type of the ECS instance"
   default     = "ecs.c7.8xlarge"
